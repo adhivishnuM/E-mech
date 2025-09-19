@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Mechanic - Your Trusted EV Repair Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="logo" onclick="switchTab('home')" style="cursor: pointer;">
+            <div class="logo-icon">
+                <div class="custom-logo">
+                    <img src="C:\Users\sound\Downloads\ChatGPT_Image_Sep_19__2025__12_44_54_PM-removebg-preview.png" alt="E-Mechanic Logo" class="logo-image">
+                </div>
+            </div>
+            <div class="logo-text">
+                <span class="e-text">E</span><span class="mechanic-text">Mechanic</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Tab -->
+        <div id="home-tab" class="tab-content active">
+            <div class="hero-section">
+                <h1 class="hero-title">Affordable EV Servicing at Your Doorstep</h1>
+                <button class="cta-button" onclick="switchTab('book')">Book Service Now</button>
+            </div>
+            
+            <div class="services-section">
+                <h2 class="section-title">Popular Services</h2>
+                <div class="services-grid" id="services-grid">
+                    <!-- Services will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Tab -->
+        <div id="book-tab" class="tab-content">
+            <div class="book-header">
+                <h2 class="section-title">Book Your Service</h2>
+            </div>
+            
+            <form class="booking-form" id="booking-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ev-brand">EV Brand</label>
+                    <select id="ev-brand" name="ev-brand" required>
+                        <option value="">Select your EV brand</option>
+                        <option value="ola">Ola</option>
+                        <option value="ather">Ather</option>
+                        <option value="tvs">TVS</option>
+                        <option value="bajaj">Bajaj</option>
+                        <option value="hero">Hero</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="issue">Issue</label>
+                    <select id="issue" name="issue" required>
+                        <option value="">Select the issue</option>
+                        <option value="accelerator">Accelerator Throttle Issue</option>
+                        <option value="battery">Battery Connector Problem</option>
+                        <option value="brake">Brake Pad Replacement</option>
+                        <option value="annual">Annual Maintenance Checkup</option>
+                        <option value="charging">Charging Port Issue</option>
+                        <option value="motor">Motor Malfunction</option>
+                        <option value="display">Display Screen Problem</option>
+                        <option value="horn">Horn Not Working</option>
+                        <option value="lights">Headlight/Taillight Issue</option>
+                        <option value="tire">Tire Puncture/Replacement</option>
+                        <option value="chain">Chain Lubrication</option>
+                        <option value="suspension">Suspension Problem</option>
+                        <option value="controller">Controller Unit Issue</option>
+                        <option value="wiring">Wiring Harness Problem</option>
+                        <option value="unknown">Unknown Issue</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Service Type</label>
+                    <div class="service-type-toggle">
+                        <button type="button" class="toggle-btn active" data-type="asap">ASAP</button>
+                        <button type="button" class="toggle-btn" data-type="schedule">Schedule</button>
+                    </div>
+                    <div class="date-picker" id="date-picker" style="display: none;">
+                        <input type="datetime-local" id="schedule-date" name="schedule-date">
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-button">Book Service</button>
+            </form>
+            
+            <!-- Mechanic Assignment Card -->
+            <div class="mechanic-card" id="mechanic-card" style="display: none;">
+                <div class="mechanic-info">
+                    <div class="mechanic-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div class="mechanic-details">
+                        <h3 class="mechanic-name">Ravi Kumar</h3>
+                        <div class="certification-badge">
+                            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <span>Certified E-Mechanic</span>
+                        </div>
+                        <div class="rating">
+                            <div class="stars">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                            </div>
+                            <span class="rating-text">4.8</span>
+                        </div>
+                        <div class="eta">
+                            <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <span>ETA: 25 mins</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mechanic-actions">
+                    <button class="call-button" onclick="callMechanic()">
+                        <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        Call Mechanic
+                    </button>
+                    <button class="track-button" onclick="switchTab('track')">
+                        <svg class="map-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="1,6 1,22 8,18 16,22 23,18 23,2 16,6 8,2"/>
+                        </svg>
+                        Track Repair
+                    </button>
+                </div>
+                
+                <div class="price-card">
+                    <div class="receipt-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <div class="price-details">
+                        <div class="price-row">
+                            <span class="price-label">Showroom:</span>
+                            <span class="showroom-price" id="showroom-price">₹2,200</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">E-Mechanic:</span>
+                            <span class="emechanic-price" id="emechanic-price">₹950</span>
+                        </div>
+                        <div class="discount-badge" id="discount-badge">-57%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Track Tab -->
+        <div id="track-tab" class="tab-content">
+            <div class="track-header">
+                <h2 class="section-title">Service Checkpoints</h2>
+                <p class="track-subtitle">Monitor your repair progress in real-time</p>
+            </div>
+            
+            <div class="progress-section">
+                <div class="progress-line">
+                    <div class="line active-1"></div>
+                    <div class="dot dot-1 active" data-step="1"></div>
+                    <div class="dot dot-2" data-step="2"></div>
+                    <div class="dot dot-3" data-step="3"></div>
+                    <div class="dot dot-4" data-step="4"></div>
+                </div>
+                <div class="step-labels">
+                    <span class="label label-1 active">Assigned</span>
+                    <span class="label label-2">On the Way</span>
+                    <span class="label label-3">Repairing</span>
+                    <span class="label label-4">Completed</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Tab -->
+        <div id="profile-tab" class="tab-content">
+            <div class="profile-header">
+                <div class="user-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div class="user-info">
+                    <h2 class="user-name">John Doe</h2>
+                    <p class="user-email">john.doe@email.com</p>
+                </div>
+            </div>
+            
+            <div class="registered-evs">
+                <h3 class="section-subtitle">Your EVs</h3>
+                <div class="ev-cards">
+                    <div class="ev-card">
+                        <div class="ev-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="ev-details">
+                            <span class="ev-brand">Ola S1</span>
+                            <span class="ev-model">Electric Scooter</span>
+                        </div>
+                    </div>
+                    <div class="ev-card">
+                        <div class="ev-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="ev-details">
+                            <span class="ev-brand">Ather 450X</span>
+                            <span class="ev-model">Electric Scooter</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-history">
+                <h3 class="section-subtitle">Service History</h3>
+                <div class="history-list" id="service-history">
+                    <!-- Service history will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="loyalty-badge">
+                <div class="badge-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div class="badge-text">
+                    <h4>Certified E-Mechanic User</h4>
+                    <p>Trusted customer with premium service access</p>
+                </div>
+            </div>
+            
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-tab="home" onclick="switchTab('home')">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" data-tab="book" onclick="switchTab('book')">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span class="nav-label">Book</span>
+        </button>
+        <button class="nav-item" data-tab="track" onclick="switchTab('track')">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="1,6 1,22 8,18 16,22 23,18 23,2 16,6 8,2"/>
+            </svg>
+            <span class="nav-label">Track</span>
+        </button>
+        <button class="nav-item" data-tab="profile" onclick="switchTab('profile')">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="nav-label">Profile</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
